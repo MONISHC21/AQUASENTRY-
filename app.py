@@ -13,14 +13,13 @@ from components.satellite_monitor import satellite_monitoring_tab
 from components.iot_forecasting import iot_forecasting_tab
 from components.health_reporting import health_reporting_tab
 from components.disease_prediction import disease_prediction_tab
-from components.ibm_integration import ibm_integration_sidebar
 from utils.alert_system import check_critical_alerts, display_alert_banner
 from utils.data_processing import load_water_quality_data, generate_iot_data
 from utils.email_alerts import send_health_alert, configure_email_settings, get_recent_alerts
 
 # Page configuration
 st.set_page_config(
-    page_title="Water Quality Prediction Dashboard - IBM Z Datathon 2025",
+    page_title="Water Quality Prediction Dashboard",
     page_icon="💧",
     layout="wide",
     initial_sidebar_state="expanded"
@@ -74,7 +73,7 @@ def main():
     st.markdown("""
     <div class="main-header">
         <h1>🌊 AI-Powered Water Quality Prediction Dashboard</h1>
-        <h3>IBM Z Datathon 2025 - Preventing Waterborne Disease Outbreaks</h3>
+        <h3>Preventing Waterborne Disease Outbreaks</h3>
     </div>
     """, unsafe_allow_html=True)
     
@@ -94,9 +93,6 @@ def main():
     critical_alerts = check_critical_alerts(water_data, iot_data, st.session_state.health_reports)
     if critical_alerts:
         display_alert_banner(critical_alerts)
-    
-    # IBM Z Integration Sidebar
-    ibm_integration_sidebar()
     
     # Main dashboard tabs
     tabs = st.tabs([
@@ -187,8 +183,8 @@ def main():
     st.markdown("---")
     st.markdown("""
     <div style="text-align: center; color: #CAF0F8; margin-top: 2rem;">
-        <p><strong>IBM Z Datathon 2025 - Water Quality Prediction Dashboard</strong></p>
-        <p>Powered by IBM Z Systems | Real-time Satellite & IoT Integration | AI-Driven Disease Prevention</p>
+        <p><strong>Water Quality Prediction Dashboard</strong></p>
+        <p>Real-time Satellite & IoT Integration | AI-Driven Disease Prevention</p>
         <p>Last Updated: {}</p>
     </div>
     """.format(datetime.now().strftime("%Y-%m-%d %H:%M:%S")), unsafe_allow_html=True)
