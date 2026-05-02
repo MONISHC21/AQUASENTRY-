@@ -126,7 +126,7 @@ def satellite_monitoring_tab():
             plot_bgcolor='rgba(0,0,0,0)'
         )
         
-        st.plotly_chart(fig_gauges, use_container_width=True)
+st.plotly_chart(fig_gauges, width='stretch')
     
     with col2:
         st.subheader("🎯 Current Status")
@@ -167,7 +167,7 @@ def satellite_monitoring_tab():
         try:
             if os.path.exists(clean_image_path):
                 clean_image = Image.open(clean_image_path)
-                st.image(clean_image, caption="Clean Water Body - Satellite View", use_container_width=True)
+st.image(clean_image, caption="Clean Water Body - Satellite View", width='stretch')
             else:
                 st.info("Clean water reference image not available")
                 
@@ -191,7 +191,7 @@ def satellite_monitoring_tab():
         try:
             if os.path.exists(current_image_path):
                 current_image = Image.open(current_image_path)
-                st.image(current_image, caption="Current Water Body - Live Monitoring", use_container_width=True)
+st.image(current_image, caption="Current Water Body - Live Monitoring", width='stretch')
             else:
                 st.info("Current monitoring image not available")
                 
@@ -282,7 +282,7 @@ def satellite_monitoring_tab():
         legend=dict(x=0.01, y=0.99, bgcolor='rgba(0,0,0,0.5)')
     )
     
-    st.plotly_chart(fig_trends, use_container_width=True)
+st.plotly_chart(fig_trends, width='stretch')
     
     # Technical specifications
     with st.expander("🔧 Technical Specifications"):
