@@ -1,7 +1,10 @@
+[tool.uv]
+package-mode = false
+
 [project]
 name = "aquasentry"
 version = "0.1.0"
-description = "AI-Powered Water Quality Prediction Dashboard"
+description = ""
 requires-python = ">=3.11"
 dependencies = [
     "numpy>=2.0.0",
@@ -13,5 +16,6 @@ dependencies = [
     "sendgrid>=6.10.0",
     "streamlit>=1.40.0,<1.41.0",
 ]
-[tool.uv]
-package-mode = false
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
