@@ -1,7 +1,7 @@
 [project]
-name = "repl-nix-workspace"
+name = "aquasentry"
 version = "0.1.0"
-description = "Add your description here"
+description = "AI-Powered Water Quality Prediction Dashboard"
 requires-python = ">=3.11"
 dependencies = [
     "numpy>=2.0.0",
@@ -13,3 +13,5 @@ dependencies = [
     "sendgrid>=6.10.0",
     "streamlit>=1.40.0,<1.41.0",
 ]
+[tool.uv]
+package-mode = false
