@@ -12,5 +12,5 @@ dependencies = [
     "scikit-learn>=1.7.2",
     "sendgrid>=6.12.5",
     "streamlit>=1.50.0",
-    "pyarrow>=14.0.0",
+    "pyarrow>=14.0.0,<18.0.0",
 ]
