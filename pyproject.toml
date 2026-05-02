@@ -1,16 +1,8 @@
-[tool.poetry]
-name = "aquasentry"
-version = "0.1.0"
-description = "Water Quality Dashboard"
-authors = ["Monish C <monis.ch21@bitsathy.ac.in>"]
-
-[tool.poetry.dependencies]
-python = "^3.11"
-numpy = "^2.0.0"
-openpyxl = "^3.1.0"
-pandas = "^2.0.0"
-pillow = "^10.0.0"
-plotly = "^5.0.0"
-scikit-learn = "^1.5.0"
-sendgrid = "^6.10.0"
-streamlit = "^1.40.0"
+streamlit>=1.40.0,<1.41.0
+numpy>=2.0.0
+pandas>=2.0.0
+plotly>=5.0.0
+pillow>=10.0.1
+scikit-learn>=1.5.0
+sendgrid>=6.10.0
+openpyxl>=3.1.0
