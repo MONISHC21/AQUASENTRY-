@@ -111,13 +111,7 @@ except ImportError:
         return []
     EMAIL_AVAILABLE = False
 
-# Page configuration
-st.set_page_config(
-    page_title="Water Quality Prediction Dashboard",
-    page_icon="💧",
-    layout="wide",
-    initial_sidebar_state="expanded"
-)
+
 
 # Custom CSS for IBM Z theme
 st.markdown("""
