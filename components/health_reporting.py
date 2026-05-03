@@ -190,7 +190,7 @@ def health_reporting_tab():
                     plot_bgcolor='rgba(0,0,0,0)'
                 )
                 
-                st.plotly_chart(fig_symptoms, use_container_width=True)
+                st.plotly_chart(fig_symptoms, width="stretch")
                 
                 # Severity distribution
                 severity_counts = reports_df['severity'].value_counts()
@@ -207,7 +207,7 @@ def health_reporting_tab():
                     paper_bgcolor='rgba(0,0,0,0)'
                 )
                 
-                st.plotly_chart(fig_severity, use_container_width=True)
+                st.plotly_chart(fig_severity, width="stretch")
         
         with analysis_tabs[1]:
             # Geographic distribution

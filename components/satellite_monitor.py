@@ -126,7 +126,7 @@ def satellite_monitoring_tab():
             plot_bgcolor='rgba(0,0,0,0)'
         )
         
-        st.plotly_chart(fig_gauges, width='stretch')
+        st.plotly_chart(fig_gauges, width="stretch")
     
     with col2:
         st.subheader("🎯 Current Status")
@@ -282,7 +282,7 @@ def satellite_monitoring_tab():
         legend=dict(x=0.01, y=0.99, bgcolor='rgba(0,0,0,0.5)')
     )
     
-    st.plotly_chart(fig_trends, width='stretch')
+    st.plotly_chart(fig_trends, width="stretch")
     
     # Technical specifications
     with st.expander("🔧 Technical Specifications"):

@@ -89,7 +89,7 @@ def disease_prediction_tab(water_data):
             fig_risk.add_hline(y=25, line_dash="dash", line_color="yellow", 
                              annotation_text="Moderate Risk (25%)")
             
-            st.plotly_chart(fig_risk, use_container_width=True)
+            st.plotly_chart(fig_risk, width="stretch")
             
             # Detailed risk breakdown
             st.subheader("📊 Detailed Risk Analysis")
@@ -113,7 +113,7 @@ def disease_prediction_tab(water_data):
                     return 'background-color: #4CAF50; color: white'
             
             styled_df = risk_df.style.applymap(style_risk_level, subset=['Risk Level'])
-            st.dataframe(styled_df, use_container_width=True)
+            st.dataframe(styled_df, width="stretch")
         
         with col2:
             st.subheader("⚠️ Current Water Quality Status")
@@ -287,7 +287,7 @@ def disease_prediction_tab(water_data):
             legend=dict(x=0.01, y=0.99, bgcolor='rgba(0,0,0,0.5)')
         )
         
-        st.plotly_chart(fig_trends, use_container_width=True)
+        st.plotly_chart(fig_trends, width="stretch")
         
     else:
         st.warning("No water quality data available for disease risk assessment.")

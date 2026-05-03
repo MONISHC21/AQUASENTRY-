@@ -127,7 +127,7 @@ def iot_forecasting_tab(iot_data):
                 legend=dict(x=0.01, y=0.99, bgcolor='rgba(0,0,0,0.5)')
             )
             
-            st.plotly_chart(fig_forecast, use_container_width=True)
+            st.plotly_chart(fig_forecast, width="stretch")
             
             # Forecast analysis
             forecast_values = forecast_data[selected_param].values
@@ -255,7 +255,7 @@ def iot_forecasting_tab(iot_data):
             plot_bgcolor='rgba(0,0,0,0)'
         )
         
-        st.plotly_chart(fig_multi, use_container_width=True)
+        st.plotly_chart(fig_multi, width="stretch")
     
     # Technical details
     with st.expander("🔧 IoT Network & ML Model Details"):

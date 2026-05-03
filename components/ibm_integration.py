@@ -88,7 +88,7 @@ def ibm_integration_sidebar():
             plot_bgcolor='rgba(0,0,0,0)'
         )
         
-        st.plotly_chart(fig_load, use_container_width=True)
+        st.plotly_chart(fig_load, width="stretch")
         
         # Data processing capabilities
         st.subheader("🔄 Data Processing")
