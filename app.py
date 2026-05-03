@@ -1,4 +1,7 @@
 import streamlit as st
+
+st.write("🚀 App is starting...")
+
 import plotly.express as px
 import plotly.graph_objects as go
 from plotly.subplots import make_subplots
@@ -6,7 +9,7 @@ import pandas as pd
 import numpy as np
 from datetime import datetime, timedelta
 import os
-from PIL import Image
+# from PIL import Image  # Commented for deployment
 
 # Import custom components with fallback
 try:
@@ -153,6 +156,7 @@ st.markdown("""
 
 def main():
     # Header
+    st.success("✅ App loaded successfully")
     st.markdown("""
     <div class="main-header">
         <h1>🌊 AI-Powered Water Quality Prediction Dashboard</h1>
@@ -278,9 +282,9 @@ def main():
                     'affected_population': 'Estimated 5,000+ residents',
                     'recommended_action': 'Immediate water source isolation, public health advisory, emergency water distribution'
                 }
-                send_health_alert(email_data)
+                # send_health_alert(email_data)  # Commented for deployment
                 
-                st.success("Test alert generated and email notification sent!")
+                st.success("Test alert generated (email disabled for deployment)!")
                 st.rerun()
     
     # Footer
@@ -294,9 +298,10 @@ def main():
     """.format(datetime.now().strftime("%Y-%m-%d %H:%M:%S")), unsafe_allow_html=True)
 
 if __name__ == "__main__":
+    st.write("Starting main function...")
     try:
         main()
+        st.success("Main function executed successfully ✅")
     except Exception as e:
-        st.error(f"**Critical startup error:** {str(e)}")
-        st.info("The app loaded partially. Check that all components/ and utils/ folders are in the repo.")
-        st.info("Local test passed if no errors above.")
+        st.error(f"CRASH: {str(e)}")
+        st.info("App loaded with errors above.")
