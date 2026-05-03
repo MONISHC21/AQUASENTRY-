@@ -1,5 +1,13 @@
 import streamlit as st
 
+# Page configuration - FIRST Streamlit command
+st.set_page_config(
+    page_title="Water Quality Prediction Dashboard",
+    page_icon="💧",
+    layout="wide",
+    initial_sidebar_state="expanded"
+)
+
 st.write("🚀 App is starting...")
 
 import plotly.express as px
