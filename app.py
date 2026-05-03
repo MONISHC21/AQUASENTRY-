@@ -8,113 +8,99 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-st.write("🚀 App is starting...")
-
-import plotly.express as px
-import plotly.graph_objects as go
-from plotly.subplots import make_subplots
-import pandas as pd
-import numpy as np
-from datetime import datetime, timedelta
 import os
 # from PIL import Image  # Commented for deployment
 
-# Import custom components with fallback
-try:
-    from components.satellite_monitor import satellite_monitoring_tab
-    SATELLITE_AVAILABLE = True
-except ImportError:
+
+
+
+
+def main():
+    st.title("✅ SERVER STARTED")
+    
+    # Heavy imports
+    import plotly.express as px
+    import plotly.graph_objects as go
+    from plotly.subplots import make_subplots
+    import pandas as pd
+    import numpy as np
+    from datetime import datetime, timedelta
+    
+    # Component imports with fallback
     def satellite_monitoring_tab():
-        st.header("🛰️ Satellite Monitoring")
-        st.info("📡 Satellite monitoring module loading...")
-        st.write("**Features when available:** Satellite imagery analysis, contamination detection, coverage maps")
-    SATELLITE_AVAILABLE = False
-
-try:
-    from components.iot_forecasting import iot_forecasting_tab
-    IOT_AVAILABLE = True
-except ImportError:
+        try:
+            from components.satellite_monitor import satellite_monitoring_tab
+            satellite_monitoring_tab()
+        except:
+            st.write("🛰️ Satellite fallback")
+    
     def iot_forecasting_tab(iot_data):
-        st.header("📊 IoT Sensor Forecast")
-        st.info("🔄 IoT forecasting module loading...")
-        st.write("**Features when available:** Real-time sensor data, 12-hour ML forecasts, anomaly detection")
-    IOT_AVAILABLE = False
-
-try:
-    from components.health_reporting import health_reporting_tab
-    HEALTH_AVAILABLE = True
-except ImportError:
+        try:
+            from components.iot_forecasting import iot_forecasting_tab
+            iot_forecasting_tab(iot_data)
+        except:
+            st.write("📊 IoT fallback")
+    
     def health_reporting_tab():
-        st.header("🏥 Health Reporting")
-        st.info("📋 Health reporting module loading...")
-        st.write("**Features when available:** Population health trends, outbreak correlation, reporting dashboard")
-    HEALTH_AVAILABLE = False
-
-try:
-    from components.disease_prediction import disease_prediction_tab
-    DISEASE_AVAILABLE = True
-except ImportError:
+        try:
+            from components.health_reporting import health_reporting_tab
+            health_reporting_tab()
+        except:
+            st.write("🏥 Health fallback")
+    
     def disease_prediction_tab(water_data):
-        st.header("🦠 Disease Risk Prediction")
-        st.info("🧬 Disease prediction module loading...")
-        st.write("**Features when available:** Waterborne disease risk assessment, preventive recommendations")
-    DISEASE_AVAILABLE = False
-
-try:
-    from utils.alert_system import check_critical_alerts, display_alert_banner
-    ALERT_AVAILABLE = True
-except ImportError:
+        try:
+            from components.disease_prediction import disease_prediction_tab
+            disease_prediction_tab(water_data)
+        except:
+            st.write("🦠 Disease fallback")
+    
     def check_critical_alerts(water_data, iot_data, health_reports):
-        return []
+        try:
+            from utils.alert_system import check_critical_alerts
+            return check_critical_alerts(water_data, iot_data, health_reports)
+        except:
+            return []
+    
     def display_alert_banner(alerts):
-        pass
-    ALERT_AVAILABLE = False
-
-try:
-    from utils.data_processing import load_water_quality_data, generate_iot_data
-    DATA_AVAILABLE = True
-except ImportError:
+        try:
+            from utils.alert_system import display_alert_banner
+            display_alert_banner(alerts)
+        except:
+            pass
+    
     def load_water_quality_data():
-        import pandas as pd
-        import numpy as np
-        df = pd.DataFrame({
-            'ph': np.random.normal(7.0, 0.5, 100),
-            'turbidity': np.random.exponential(2, 100),
-            'tds': np.random.normal(500, 100, 100),
-            'dissolved_oxygen': np.random.normal(8, 1, 100)
-        })
-        st.info("Using generated sample data (data_processing not available)")
-        return df
+        try:
+            from utils.data_processing import load_water_quality_data
+            return load_water_quality_data()
+        except:
+            df = pd.DataFrame({'ph': np.random.normal(7.0, 0.5, 100)})
+            return df
+    
     def generate_iot_data():
-        import pandas as pd
-        import numpy as np
-        from datetime import datetime, timedelta
-        times = pd.date_range(start=datetime.now()-timedelta(days=1), periods=24, freq='H')
-        df = pd.DataFrame({
-            'timestamp': times,
-            'ph': np.random.normal(7.0, 0.2, 24),
-            'turbidity': np.random.normal(2.5, 0.5, 24)
-        })
-        st.info("Using generated IoT sample data")
-        return df
-    DATA_AVAILABLE = False
-
-try:
-    from utils.email_alerts import send_health_alert, configure_email_settings, get_recent_alerts
-    EMAIL_AVAILABLE = True
-except ImportError:
+        try:
+            from utils.data_processing import generate_iot_data
+            return generate_iot_data()
+        except:
+            df = pd.DataFrame({'ph': np.random.normal(7.0, 0.2, 24)})
+            return df
+    
     def send_health_alert(data):
-        st.info("Email alert logged (email module not available)")
+        try:
+            from utils.email_alerts import send_health_alert
+            send_health_alert(data)
+        except:
+            st.info("Email logged")
+    
     def configure_email_settings():
-        st.info("Email configuration panel (module not available)")
-    def get_recent_alerts():
-        return []
-    EMAIL_AVAILABLE = False
-
-
-
-# Custom CSS for IBM Z theme
-st.markdown("""
+        try:
+            from utils.email_alerts import configure_email_settings
+            configure_email_settings()
+        except:
+            st.info("Email config")
+    
+    # Custom CSS for IBM Z theme
+    st.markdown("""
 <style>
     .main-header {
         background: linear-gradient(90deg, #002B5B 0%, #00B4D8 100%);
@@ -156,15 +142,17 @@ st.markdown("""
 </style>
 """, unsafe_allow_html=True)
 
-def main():
-    # Header
     st.success("✅ App loaded successfully")
+    # Header
+
     st.markdown("""
     <div class="main-header">
         <h1>🌊 AI-Powered Water Quality Prediction Dashboard</h1>
         <h3>Preventing Waterborne Disease Outbreaks</h3>
     </div>
     """, unsafe_allow_html=True)
+
+
     
     # Initialize session state
     if 'alerts' not in st.session_state:
