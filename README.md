@@ -135,16 +135,26 @@ Install dependencies:
 
 ```bash
 pip install streamlit plotly pandas numpy scikit-learn pillow openpyxl
-
+```
+---
 ## ▶️ How to Run
 
 ```bash
 streamlit run app.py
-
+```
+---
   ### Optional Integrations                                                                                           
                                                                                                                       
   • SendGrid - Email alert delivery (configured via  SENDGRID_API_KEY  environment variable)                          
-  • Health authority email configured via  HEALTH_AUTHORITY_EMAIL  environment variable                               
+  • Health authority email configured via  HEALTH_AUTHORITY_EMAIL  environment variable
+---
+
+<img width="1073" height="767" alt="Image" src="https://github.com/user-attachments/assets/00268f2a-eef7-4804-8cf5-70d93218403b" />
+<img width="1352" height="718" alt="Image" src="https://github.com/user-attachments/assets/297f295d-4364-4b3b-803e-260f584a32f3" />
+<img width="798" height="679" alt="Image" src="https://github.com/user-attachments/assets/808ebb55-9de3-4312-93ba-5e8c788a45cf" />
+<img width="1355" height="725" alt="Image" src="https://github.com/user-attachments/assets/55216503-bd53-42f9-9e1f-3ba8441c2966" />
+
+ ---
                                                                                                                       
   ### Data Requirements                                                                                               
                                                                                                                       
